@@ -25,5 +25,7 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
     else:
         return 'Black'
 
+#print(reactor_efficiency(10, 10, 100))
 
-print(reactor_efficiency(10, 10, 100))
+def fail_safe():
+    #test mergea
