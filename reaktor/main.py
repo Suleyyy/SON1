@@ -1,5 +1,6 @@
 temperature = 10
-neurons = 600
+neurons = 100
+limit = 1000
 
 
 def is_criticality_balanced(kelvins, neuron):
@@ -27,5 +28,10 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
 
 #print(reactor_efficiency(10, 10, 100))
 
-def fail_safe():
-    #test mergea
+def fail_safe(calv, neur, limit):
+    score = (calv*neur)/limit*100
+    if score < 90:
+        print('LOW')
+    elif score >= 90:
+        print('NORMAL')
+
