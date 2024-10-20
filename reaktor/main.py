@@ -1,37 +1,12 @@
-temperature = 10
-neurons = 100
-limit = 1000
+from reaktor.modules.reaktor import Reaktor
 
+reaktor1 = Reaktor(100, 600, 10, 100, 1100, 6100)
 
-def is_criticality_balanced(kelvins, neuron):
-    return True if kelvins * neuron < 500000 and kelvins < 800 and neurons > 500 else False
-
-
-'''
-if is_criticality_balanced(temperature, neurons):
-    print("Jest git")
+if reaktor1.is_criticality_balanced(reaktor1.kelvins, reaktor1.neuron):
+    print('Jest zrównoważony w stanie krytycznym')
 else:
-    print("nie git")
-'''
+    print('Nie jest zrównoważony w stanie krytycznym')
 
+print(reaktor1.reactor_efficiency(reaktor1.voltage, reaktor1.current, reaktor1.t_m_p))
 
-def reactor_efficiency(voltage, current, theoretical_max_power):
-    percent_value = (voltage * current / theoretical_max_power) * 100
-    if percent_value >= 80:
-        return 'Green'
-    if percent_value >= 60:
-        return 'Orange'
-    if percent_value >= 40:
-        return 'Red'
-    else:
-        return 'Black'
-
-#print(reactor_efficiency(10, 10, 100))
-
-def fail_safe(calv, neur, limit):
-    score = (calv*neur)/limit*100
-    if score < 90:
-        print('LOW')
-    elif score >= 90:
-        print('NORMAL')
-
+reaktor1.fail_safe(reaktor1.kelvins, reaktor1.neuron, reaktor1.limit)
